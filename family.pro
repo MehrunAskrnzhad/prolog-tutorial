@@ -32,3 +32,9 @@ brother(P1, P2) :-
 grandFather(G, C) :-
     father(G, P),
     (father(P, C) ; mother(P, C)).
+
+
+ancestor(Anc, P) :- (father(Anc, P); mother(Anc, P)).
+ancestor(Anc, P) :-
+    (father(Anc, MP); mother(Anc, MP)),
+    ancestor(MP, P).
